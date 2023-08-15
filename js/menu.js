@@ -1,9 +1,7 @@
 const closed = document.querySelector('.closed');
 const open = document.querySelector('.open');
 const navbar = document.querySelector('nav');
-const navgator = document.querySelectorAll('a')
-var window = window.matchMedia("(max-width: 700px)")
-var larguraViewport = window.innerWidth;
+const navgator = document.querySelectorAll('a');
 
 window.addEventListener("resize", handleResize);
 handleResize();
@@ -22,21 +20,16 @@ function menuShow() {
     });
 }
 
-function clicked(){
-    for (var i = 0; i < navgator.length; i++) {
-        navgator[i].addEventListener("click", function() {
-            verificaNav();
-        });
-    }
-}
-
-
 function handleResize() {
     var larguraViewport = window.innerWidth;
 
     if (larguraViewport < 768) {
-        clicked();
         navbar.style.display = 'none';
+        for (var i = 0; i < navgator.length; i++) {
+            navgator[i].addEventListener("click", function() {
+                verificaNav();
+            });
+        }
         console.log(larguraViewport)
     } else {
         navbar.style.display = 'flex';

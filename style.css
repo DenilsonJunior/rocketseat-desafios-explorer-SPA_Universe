@@ -30,7 +30,7 @@ p {
 
 header {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     display: flex;
@@ -38,6 +38,11 @@ header {
     flex-wrap: wrap;
     gap: 3.2rem;
     padding: 4rem 7.2rem;
+}
+
+header svg {
+    position: relative;
+    z-index: 1;
 }
 
 header nav {
@@ -54,7 +59,6 @@ header nav a {
 
 header .menu-hamburguer.hide {
     position: absolute;
-    top: 1rem;
     right: 2rem;
     display: none;
 }
@@ -103,6 +107,12 @@ button {
     font-size: 1.4rem;
 }
 
+button.menu {
+    border: none;
+    padding: 0;
+    font-size: 3rem;
+}
+
 .box-text {
     max-width: 64.8rem;
 }
@@ -125,10 +135,11 @@ button {
         height: 100vh;
         top: 0;
         left: 0;
-        background-color: #ccc;
+        /* background-color: var(--color-bg); */
         flex-direction: column;
         justify-content: center;
         padding: 2rem;
+        backdrop-filter: blur(2rem);
     }
 
     .page {
