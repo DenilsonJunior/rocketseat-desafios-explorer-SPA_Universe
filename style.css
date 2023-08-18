@@ -90,6 +90,10 @@ header .menu-hamburguer.hide {
     background-image: url(img/mountains-universe-1.png);
 }
 
+.page1 h1 {
+    text-align: center;
+}
+
 .page2 {
     background-image: url(img/mountains-universe-2.png);
 }

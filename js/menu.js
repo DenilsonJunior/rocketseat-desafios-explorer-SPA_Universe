@@ -4,40 +4,33 @@ const navbar = document.querySelector('nav');
 const navgator = document.querySelectorAll('a');
 
 window.addEventListener("resize", handleResize);
+menuShow();
 handleResize();
 
 function menuShow() {
-    closed.addEventListener('click', () => {
-        closed.classList.add('hide');
-        open.classList.remove('hide');
-        navbar.style.display = 'flex';
-    });
-    
-    open.addEventListener('click', () => {
-        open.classList.add('hide');
-        closed.classList.remove('hide');
-        navbar.style.display = 'none';
-    });
+    closed.addEventListener('click', () => toggleMenu(true));
+    open.addEventListener('click', () => toggleMenu(false));
+}
+
+function toggleMenu(openMenu) {
+    closed.classList.toggle('hide', openMenu);
+    open.classList.toggle('hide', !openMenu);
+    navbar.style.display = openMenu ? 'flex' : 'none';
 }
 
 function handleResize() {
-    var larguraViewport = window.innerWidth;
-
+    const larguraViewport = window.innerWidth;
+    
     if (larguraViewport < 768) {
         navbar.style.display = 'none';
-        for (var i = 0; i < navgator.length; i++) {
-            navgator[i].addEventListener("click", function() {
-                verificaNav();
-            });
-        }
-        console.log(larguraViewport)
+        navgator.forEach(item => item.addEventListener("click", verificaNav));
+        console.log(larguraViewport);
     } else {
         navbar.style.display = 'flex';
+        navgator.forEach(item => item.removeEventListener("click", verificaNav));
     }
 }
 
 function verificaNav() {
-    navbar.style.display = 'none';
-    closed.classList.remove('hide');
-    open.classList.add('hide');
+    toggleMenu(false);
 }
