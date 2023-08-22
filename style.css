@@ -54,6 +54,7 @@ header nav a {
     color: var(--color-white);
     text-decoration: none;
     font-size: 2.1rem;
+    font-weight: 300;
 }
 
 header .menu-hamburguer {
@@ -102,19 +103,23 @@ header .menu-hamburguer {
     background-image: url(img/mountains-universe-3.png);
 }
 
-button {
+.btn {
     background-color: transparent;
     color: var(--color-white);
     padding: 1.2rem 3.2rem;
     border: solid var(--color-white) .2rem;
     cursor: pointer;
     font-size: 1.4rem;
+    text-decoration: none;
 }
 
 button.menu {
     border: none;
     padding: 0;
     font-size: 3rem;
+    background-color: transparent;
+    color: var(--color-white);
+    cursor: pointer;
 }
 
 .box-text {
